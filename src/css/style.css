@@ -41,6 +41,10 @@ body {
   position: relative;
 }
 
+.todo__app {
+  position: relative;
+}
+
 .container {
   max-width: 1400px;
   margin: auto;
@@ -86,6 +90,7 @@ h1 {
   width: 80%;
   gap: 2rem;
 }
+/* ================== Input ====================== */
 
 input[type="text"] {
   outline: none;
@@ -185,25 +190,16 @@ span {
 }
 
 .todo__list-items-svg,
-.todo__list-items-svg-delete {
+.todo__list-items-svg-delete,
+.contentView-svg {
+  cursor: pointer;
   width: 2.6rem !important;
   height: 2.6rem !important;
   border-radius: 0.4rem;
   background-color: var(--color-tertiary);
 }
 
-.delete__animate {
-  animation: item_animate 5s linear 2s infinite;
-}
-
-@keyframes item_animate {
-  0% {
-    transform: scale(0.9);
-    opacity: 50;
-  }
-  100% {
-  }
-}
+/* ================= Todo Scroll ======================== */
 
 .todo__list::-webkit-scrollbar {
   width: 0.4rem;
@@ -217,6 +213,42 @@ span {
   background: var(--color-secondary);
   border-radius: 1rem;
 }
+
+/* ==================== Content View B0X ================== */
+
+.contentView__Box {
+  position: absolute;
+  background-color: var(--color-gray);
+  padding: 1.8rem 2.2rem;
+  z-index: 2;
+
+  border-radius: 0.8rem;
+  width: 100%;
+}
+.contentView__closeBtn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+/* ================ OVERLAY ==================*/
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-black);
+  opacity: 0.6;
+  z-index: 1;
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+/* ============ Media Queries ====================== */
 
 /* Responsive on Mobiles */
 @media screen and (max-width: 468px) {

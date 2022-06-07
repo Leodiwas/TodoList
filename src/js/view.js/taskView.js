@@ -1,11 +1,12 @@
 import TodoAppView from "./todoAppView.js";
 
 class TaskView extends TodoAppView {
-  _todo_listBox = document.querySelector(".todo__list");
+  _content = document.querySelector(".content");
 
   constructor() {
     super();
     this._viewTask();
+    this._viewTaskDelete();
   }
 
   _generateMarkUp(data) {
@@ -29,8 +30,20 @@ class TaskView extends TodoAppView {
 
   _viewTask() {
     this._parentEl.addEventListener("click", (e) => {
-      const viewBtn = e.target.closest(".todo__list-items");
-      if (!viewBtn) return;
+      const viewContentBtn = e.target.closest(".todo__task_title");
+      if (!viewContentBtn) return;
+
+      this._content.textContent = viewContentBtn.textContent;
+      return this._overlay();
+    });
+  }
+
+  _viewTaskDelete() {
+    this._parentEl.addEventListener("click", (e) => {
+      const viewDeleteBtn = e.target.closest(".contentView__closeBtn");
+      if (!viewDeleteBtn) return;
+
+      return this._overlay();
     });
   }
 }
