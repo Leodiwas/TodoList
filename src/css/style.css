@@ -1,0 +1,247 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+
+:root {
+  --font-primary: "Poppins", sans-serif;
+
+  --color-white: #fff;
+  --color-black: #000;
+  --color-gray: #e5e5e5;
+  --color-primary: #5ec576;
+  --color-secondary: #ffcb03;
+  --color-tertiary: #ff585f;
+  --color-primary-darker: #4bbb7d;
+  --color-secondary-darker: #ffbb00;
+  --color-tertiary-darker: #fd424b;
+  --color-primary-opacity: #5ec5763a;
+  --color-secondary-opacity: #ffcd0331;
+  --color-tertiary-opacity: #ff58602d;
+  --gradient-primary: linea-gradient(to top left, #39b385, #9be15d);
+  --gradient-secondary: linear-gradient(to top left, #ffb003, #ffcb03);
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  height: 100vh;
+  font-family: var(--font-primary);
+  padding: 2rem;
+
+  font-style: normal;
+  transition: all 0.4s;
+  position: relative;
+}
+
+.container {
+  max-width: 1400px;
+  margin: auto;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-lightBlue-text);
+}
+
+li {
+  list-style-type: none;
+}
+
+h1 {
+  font-size: 4rem;
+  line-height: 3rem;
+  font-weight: 600;
+}
+
+.todo__add_box {
+  padding: 2rem;
+  margin-bottom: 4rem;
+  border-radius: 0.8rem;
+
+  background-color: var(--color-gray);
+}
+.todo__title {
+  margin-bottom: 3.2rem;
+  text-align: center;
+}
+
+.todo__form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+.form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  gap: 2rem;
+}
+
+input[type="text"] {
+  outline: none;
+  border: none;
+  transition: all 0.5s;
+
+  width: 80%;
+  height: 4rem;
+  font-size: 1.8rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.36rem;
+  letter-spacing: 0.04rem;
+}
+
+input[type="text"].active {
+  border: 0.2rem solid var(--color-tertiary);
+}
+
+input[type="submit"] {
+  outline: none;
+  border: none;
+  cursor: pointer;
+
+  width: 20%;
+  font-size: 1.8rem;
+  padding: 0.8rem;
+  border-radius: 0.4rem;
+  letter-spacing: 0.04rem;
+  color: var(--color-white);
+  background-color: var(--color-primary-darker);
+}
+
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+p {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+span {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.todo__task {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.todo__list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+
+  padding: 1.2rem;
+  width: 100%;
+  height: auto;
+  overflow-x: hidden;
+
+  border-radius: 0.36rem;
+  transition: all 0.5s ease;
+}
+
+.todo__list-items {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.5s;
+  width: 60%;
+
+  cursor: pointer;
+  transition: all 0.5s;
+  overflow-x: auto;
+
+  font-size: 1.6rem;
+  font-weight: 600;
+
+  background-color: var(--color-gray);
+  padding: 0.8rem 1.2rem;
+  border-radius: 0.4rem;
+  border-left: 0.5rem solid var(--color-tertiary);
+}
+
+.todo__list-items > a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+}
+
+.todo__list-items-svg,
+.todo__list-items-svg-delete {
+  width: 2.6rem !important;
+  height: 2.6rem !important;
+  border-radius: 0.4rem;
+  background-color: var(--color-tertiary);
+}
+
+.delete__animate {
+  animation: item_animate 5s linear 2s infinite;
+}
+
+@keyframes item_animate {
+  0% {
+    transform: scale(0.9);
+    opacity: 50;
+  }
+  100% {
+  }
+}
+
+.todo__list::-webkit-scrollbar {
+  width: 0.4rem;
+}
+
+.todo__list::-webkit-scrollbar-track {
+  background: var(--color-secondary);
+}
+
+.todo__list::-webkit-scrollbar-thumb {
+  background: var(--color-secondary);
+  border-radius: 1rem;
+}
+
+/* Responsive on Mobiles */
+@media screen and (max-width: 468px) {
+  .form {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .todo__form {
+    gap: 0;
+  }
+
+  input[type="text"] {
+    width: 100%;
+  }
+
+  input[type="submit"] {
+    width: 80%;
+  }
+
+  .todo__list-items-svg {
+    display: none;
+  }
+
+  .todo__list-items {
+    width: 100%;
+  }
+}
